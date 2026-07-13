@@ -3,6 +3,15 @@ class TaskTracker {
     var currentLevel = 1
     var taskList = mutableListOf<Task>()
 
+    /**
+     * Creates a new Task using the given name and difficulty, calculates
+     * its XP reward based on difficulty, and adds it to the task list.
+     * New tasks always start as incomplete.
+     *
+     * @param name the name of the task
+     * @param difficulty the difficulty level of the task ("easy", "medium", or "hard")
+     */
+
     fun addTask(name: String, difficulty: String) {
         val xpReward: Int = when (difficulty) {
             "easy" -> 20
@@ -16,6 +25,15 @@ class TaskTracker {
         taskList.add(Task(name, difficulty, xpReward, isComplete))
     }
 
+    /**
+     * Marks the task at the given index as complete and awards its XP
+     * to the player's current XP total. If the resulting XP crosses one
+     * or more 100-point thresholds, the player's level increases accordingly.
+     * Does nothing if the index is invalid or the task is already complete.
+     *
+     * @param index the position of the task in the task list (0-based)
+     */
+    
     fun completeTask(index: Int) {
         // Guard clause: make sure the index is actually valid before touching the list
         if (index < 0 || index >= taskList.size) {

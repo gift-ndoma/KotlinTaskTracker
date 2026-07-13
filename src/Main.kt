@@ -1,3 +1,10 @@
+/**
+ * Entry point of the program. Runs a menu-driven loop that lets the
+ * user add tasks, complete tasks, or exit. Displays the player's XP
+ * and level after each action, and prints a final summary of all
+ * tasks when the program ends.
+ */
+
 fun main() {
     print("Enter name: ")
     val name = readln()
